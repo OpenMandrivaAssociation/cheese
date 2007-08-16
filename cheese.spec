@@ -1,5 +1,5 @@
 Name:		cheese
-Version:	0.1.4
+Version:	0.2.0
 Release:	%mkrel 1
 Summary:	A GNOME application for taking pictures and videos from a webcam.
 License:	GPL
@@ -9,7 +9,7 @@ Source:		%{name}-%{version}.tar.bz2
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 Buildrequires: libglade2.0-devel libdbus-devel libgstreamer0.10-devel
 Buildrequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
-
+Buildrequires: pkgconfig(libgnomeui-2.0)
 # TODO update features once added upstream
 %description
 Cheese is a Photobooth-inspired GNOME application for taking pictures and 
