@@ -1,5 +1,5 @@
 Name:		cheese
-Version:	0.2.0
+Version:	0.2.1
 Release:	%mkrel 1
 Summary:	A GNOME application for taking pictures and videos from a webcam.
 License:	GPL
