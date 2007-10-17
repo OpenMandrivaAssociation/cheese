@@ -23,7 +23,7 @@ the gstreamer-backend.
 %patch0 -p1 -b .utf8
 
 %build
-%configure
+%configure2_5x
 %make 
 
 %install
