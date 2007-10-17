@@ -11,6 +11,7 @@ Patch0:		cheese-0.2.1-utf8.patch
 Buildroot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 Buildrequires: libglade2.0-devel libdbus-devel libgstreamer0.10-devel
 Buildrequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
+BuildRequires: evolution-data-server-devel
 Buildrequires: pkgconfig(libgnomeui-2.0)
 # TODO update features once added upstream
 %description
