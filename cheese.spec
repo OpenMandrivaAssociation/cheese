@@ -13,6 +13,7 @@ BuildRequires: libglade2.0-devel libdbus-devel libgstreamer0.10-devel
 BuildRequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
 BuildRequires: evolution-data-server-devel
 BuildRequires: pkgconfig(libgnomeui-2.0)
+BuildRequires: libxxf86vm-devel
 # TODO update features once added upstream
 %description
 Cheese is a Photobooth-inspired GNOME application for taking pictures and 
