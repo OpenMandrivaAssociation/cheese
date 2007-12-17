@@ -8,7 +8,6 @@ URL:		http://live.gnome.org/Cheese
 Source:		%{name}-%{version}.tar.gz
 # (fc) 0.2.1-2mdv fix running under non UTF8 locale
 Patch0:		cheese-0.2.1-utf8.patch
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: libglade2.0-devel libdbus-devel libgstreamer0.10-devel
 BuildRequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
 BuildRequires: evolution-data-server-devel
