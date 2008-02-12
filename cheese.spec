@@ -7,7 +7,7 @@ Group:      Video
 URL:		http://live.gnome.org/Cheese
 Source:	http://fr2.rpmfind.net/linux/gnome.org/sources/cheese/2.21/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
-BuildRequires: libglade2.0-devel libdbus-devel libgstreamer0.10-devel
+BuildRequires: libglade2.0-devel libdbus-devel gstreamer0.10-devel
 BuildRequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
 BuildRequires: evolution-data-server-devel
 BuildRequires: pkgconfig(libgnomeui-2.0)
