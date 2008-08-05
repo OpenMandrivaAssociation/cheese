@@ -1,11 +1,11 @@
 Name:		cheese
-Version:	2.23.5
+Version:	2.23.6
 Release:	%mkrel 1
 Summary:	A GNOME application for taking pictures and videos from a webcam
 License:	GPLv2+
 Group:      Video
 URL:		http://live.gnome.org/Cheese
-Source:	    ftp://ftp.gnome.org/mirror/gnome.org/sources/cheese/2.23/%{name}-%{version}.tar.gz
+Source:	    ftp://ftp.gnome.org/mirror/gnome.org/sources/cheese/2.23/%{name}-%{version}.tar.bz2
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-root
 BuildRequires: libglade2.0-devel libdbus-devel gstreamer0.10-devel
 BuildRequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
@@ -25,7 +25,7 @@ the gstreamer-backend.
 %setup -q
 
 %build
-%configure2_5x
+%configure2_5x --disable-schemas-install
 %make
 
 %install
@@ -51,8 +51,10 @@ rm -rf %{buildroot}
 %update_icon_cache hicolor
 %endif
 
+%if %mdkversion < 200900
 %preun
 %preun_uninstall_gconf_schemas %{schemas}
+%endif
 
 %if %mdkversion < 200900
 %postun
