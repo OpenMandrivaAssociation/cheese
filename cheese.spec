@@ -1,6 +1,6 @@
 Name:		cheese
 Version:	2.24.0
-Release:	%mkrel 1
+Release:	%mkrel 2
 Summary:	A GNOME application for taking pictures and videos from a webcam
 License:	GPLv2+
 Group:      Video
@@ -38,13 +38,30 @@ rm -rf %{buildroot}
 desktop-file-install \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
 
+%define launchers %{_sysconfdir}/dynamic/launchers/webcam
+# dynamic support
+mkdir -p $RPM_BUILD_ROOT%launchers
+cat > $RPM_BUILD_ROOT%launchers/%name.desktop << EOF
+[Desktop Entry]
+Name=Webcam Photobooth
+Comment=Cheese Webcam Photobooth using \$devicename
+TryExec=%{_bindir}/cheese
+Exec=%{_bindir}/cheese
+Terminal=false
+Icon=cheese
+Type=Application
+StartupNotify=true
+EOF
+
 %clean
 rm -rf %{buildroot}
 
 %define schemas %name
 
-%if %mdkversion < 200900
 %post
+update-alternatives --install %{launchers}/kde.desktop webcam.kde.dynamic %launchers/%name.desktop 60
+update-alternatives --install %{launchers}/gnome.desktop webcam.gnome.dynamic %launchers/%name.desktop 60
+%if %mdkversion < 200900
 %post_install_gconf_schemas %{schemas}
 %update_menus
 %update_desktop_database
@@ -57,8 +74,12 @@ rm -rf %{buildroot}
 %preun_uninstall_gconf_schemas %{schemas}
 %endif
 
-%if %mdkversion < 200900
 %postun
+if [ "$1" = "0" ]; then
+   update-alternatives --remove webcam.kde.dynamic %launchers/%name.desktop
+   update-alternatives --remove webcam.gnome.dynamic %launchers/%name.desktop
+fi
+%if %mdkversion < 200900
 %clean_menus
 %clean_desktop_database
 %clean_mime_database
@@ -67,6 +88,7 @@ rm -rf %{buildroot}
 
 %files -f %{name}.lang
 %defattr(-,root,root)
+%config(noreplace) %launchers/*.desktop
 %{_sysconfdir}/gconf/schemas/%name.schemas
 %{_bindir}/*
 %{_libdir}/%{name}
