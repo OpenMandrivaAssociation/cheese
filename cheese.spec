@@ -16,6 +16,8 @@ BuildRequires: libxxf86vm-devel
 BuildRequires: gnome-doc-utils desktop-file-utils
 BuildRequires: librsvg2-devel hal-devel
 BuildRequires: intltool
+#gw libtool dep
+BuildRequires: libtasn1-devel
 # TODO update features once added upstream
 %description
 Cheese is a Photobooth-inspired GNOME application for taking pictures and
