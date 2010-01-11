@@ -1,6 +1,8 @@
+%define major 0
+%define libname %mklibname cheese-gtk %major
 Name:		cheese
-Version:	2.28.1
-Release:	%mkrel 2
+Version:	2.29.5
+Release:	%mkrel 1
 Summary:	A GNOME application for taking pictures and videos from a webcam
 License:	GPLv2+
 Group:      Video
@@ -11,10 +13,11 @@ BuildRequires: libglade2.0-devel
 BuildRequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: gnome-desktop-devel >= 2.25.1
-BuildRequires: evolution-data-server-devel
+BuildRequires: libcanberra-devel
 BuildRequires: libxxf86vm-devel
+BuildRequires: libgudev-devel
 BuildRequires: gnome-doc-utils desktop-file-utils
-BuildRequires: librsvg2-devel hal-devel
+BuildRequires: librsvg2-devel
 BuildRequires: intltool
 # TODO update features once added upstream
 %description
@@ -32,6 +35,8 @@ the gstreamer-backend.
 %install
 rm -rf %{buildroot}
 %makeinstall_std
+#gw not yet needed:
+rm -f %buildroot%_libdir/libcheese-gtk*
 
 %find_lang %{name} --with-gnome --all-name
 
