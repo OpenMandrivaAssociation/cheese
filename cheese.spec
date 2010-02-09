@@ -1,8 +1,10 @@
-%define major 0
+%define major 17
 %define libname %mklibname cheese-gtk %major
+%define develname %mklibname -d cheese-gtk
+
 Name:		cheese
-Version:	2.29.5
-Release:	%mkrel 2
+Version:	2.29.90
+Release:	%mkrel 1
 Summary:	A GNOME application for taking pictures and videos from a webcam
 License:	GPLv2+
 Group:      Video
@@ -25,6 +27,26 @@ Cheese is a Photobooth-inspired GNOME application for taking pictures and
 videos from a webcam. It also includes fancy graphical effects based on
 the gstreamer-backend.
 
+%package -n %libname
+Group: System/Libraries
+Summary: Shared library part of %name
+
+%description -n %libname
+Cheese is a Photobooth-inspired GNOME application for taking pictures and
+videos from a webcam. It also includes fancy graphical effects based on
+the gstreamer-backend.
+
+%package -n %develname
+Group: Development/C
+Summary: Developent files for %name
+Requires: %libname = %version-%release
+Provides: libcheese-gtk-devel = %version-%release
+
+%description -n %develname
+Cheese is a Photobooth-inspired GNOME application for taking pictures and
+videos from a webcam. It also includes fancy graphical effects based on
+the gstreamer-backend.
+
 %prep
 %setup -q
 
@@ -33,10 +55,8 @@ the gstreamer-backend.
 %make
 
 %install
-rm -rf %{buildroot}
+rm -rf %{buildroot} %name.lang
 %makeinstall_std
-#gw not yet needed:
-rm -f %buildroot%_libdir/libcheese-gtk*
 
 %find_lang %{name} --with-gnome --all-name
 
@@ -102,3 +122,16 @@ fi
 %{_datadir}/applications/*
 %{_datadir}/omf/%{name}/*
 %_datadir/dbus-1/services/org.gnome.Cheese.service
+
+%files -n %libname
+%defattr(-,root,root)
+%_libdir/libcheese-gtk.so.%{major}*
+
+%files -n %develname
+%defattr(-,root,root)
+%_libdir/libcheese-gtk.so
+%_libdir/libcheese-gtk.la
+%_libdir/libcheese-gtk.a
+%_includedir/%name
+%_libdir/pkgconfig/cheese-gtk.pc
+%_datadir/gtk-doc/html/%name/
