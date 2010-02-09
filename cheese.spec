@@ -21,6 +21,7 @@ BuildRequires: libgudev-devel
 BuildRequires: gnome-doc-utils desktop-file-utils
 BuildRequires: librsvg2-devel
 BuildRequires: intltool
+Requires: %libname = %version-%release
 # TODO update features once added upstream
 %description
 Cheese is a Photobooth-inspired GNOME application for taking pictures and
