@@ -3,7 +3,7 @@
 %define develname %mklibname -d cheese-gtk
 
 Name:		cheese
-Version:	2.31.92
+Version:	2.32.0
 Release:	%mkrel 1
 Summary:	A GNOME application for taking pictures and videos from a webcam
 License:	GPLv2+
