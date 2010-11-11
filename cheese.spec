@@ -15,7 +15,7 @@ BuildRequires: libglade2.0-devel
 BuildRequires: libgstreamer0.10-plugins-base-devel libgnome-vfs2-devel
 BuildRequires: dbus-glib-devel
 BuildRequires: gnome-desktop-devel >= 2.25.1
-BuildRequires: libcanberra-devel
+BuildRequires: libcanberra-gtk-devel
 BuildRequires: libxxf86vm-devel
 BuildRequires: libgudev-devel
 BuildRequires: gnome-doc-utils desktop-file-utils
