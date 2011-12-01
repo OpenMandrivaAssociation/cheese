@@ -69,8 +69,8 @@ desktop-file-install \
 
 %define launchers %{_sysconfdir}/dynamic/launchers/webcam
 # dynamic support
-mkdir -p $RPM_BUILD_ROOT%launchers
-cat > $RPM_BUILD_ROOT%launchers/%name.desktop << EOF
+mkdir -p %{buildroot}%launchers
+cat > %{buildroot}%launchers/%name.desktop << EOF
 [Desktop Entry]
 Name=Webcam Photobooth
 Comment=Cheese Webcam Photobooth using \$devicename
