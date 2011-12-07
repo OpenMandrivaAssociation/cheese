@@ -102,7 +102,7 @@ the gstreamer-backend.
 %install
 rm -rf %{buildroot} %{name}.lang
 %makeinstall_std
-
+find %{buildroot} -name *.la | xargs rm
 %find_lang %{name} --with-gnome --all-name
 
 desktop-file-install \
