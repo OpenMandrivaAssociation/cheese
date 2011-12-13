@@ -17,6 +17,7 @@ URL:		http://www.gnome.org/projects/cheese/
 Source:		ftp://ftp.gnome.org/pub/GNOME/sources/cheese/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
+BuildRequires:	glib2.0-common
 BuildRequires:	gnome-doc-utils >= 0.20
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool
