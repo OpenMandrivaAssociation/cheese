@@ -1,8 +1,8 @@
 %define gtk_major 20
 %define major 1
 %define girmajor 3.0
-%define libname %mklibname cheese %{major}
-%define gtkname %mklibname cheese-gtk %{gtk_major}
+%define libname %mklibname %{name} %{major}
+%define gtkname %mklibname %{name}-gtk %{gtk_major}
 %define girname	%mklibname %{name}-gtk-gir %{girmajor}
 %define develname %mklibname -d cheese
 
@@ -84,6 +84,7 @@ Group: Development/C
 Summary: Developent files for %{name}
 Requires: %{libname} = %{version}-%{release}
 Requires: %{gtkname} = %{version}-%{release}
+Obsoletes: %{_lib}%{name}-gtk-devel
 
 %description -n %{develname}
 Cheese is a Photobooth-inspired GNOME application for taking pictures and
