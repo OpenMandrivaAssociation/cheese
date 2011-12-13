@@ -4,11 +4,12 @@
 %define libname %mklibname %{name} %{major}
 %define gtkname %mklibname %{name}-gtk %{gtk_major}
 %define girname	%mklibname %{name}-gtk-gir %{girmajor}
-%define develname %mklibname -d cheese
+%define develname %mklibname -d %{name}
+%define develgtk %mklibname -d %{name}-gtk
 
 Name:		cheese
 Version:	3.2.2
-Release:	1
+Release:	2
 Summary:	A GNOME application for taking pictures and videos from a webcam
 License:	GPLv2+
 Group:		Video
@@ -58,18 +59,14 @@ Group: System/Libraries
 Summary: Shared library part of %{name}
 
 %description -n %{libname}
-Cheese is a Photobooth-inspired GNOME application for taking pictures and
-videos from a webcam. It also includes fancy graphical effects based on
-the gstreamer-backend.
+This package contains the shared library for %{name}.
 
 %package -n %{gtkname}
 Group: System/Libraries
 Summary: Shared library part of %{name} - gtk
 
 %description -n %{gtkname}
-Cheese is a Photobooth-inspired GNOME application for taking pictures and
-videos from a webcam. It also includes fancy graphical effects based on
-the gstreamer-backend.
+This package contains the shared library for %{name}-gtk.
 
 %package -n %{girname}
 Summary: GObject Introspection interface description for %{name}
@@ -83,13 +80,17 @@ GObject Introspection interface description for %{name}.
 Group: Development/C
 Summary: Developent files for %{name}
 Requires: %{libname} = %{version}-%{release}
-Requires: %{gtkname} = %{version}-%{release}
-Obsoletes: %{_lib}%{name}-gtk-devel
 
 %description -n %{develname}
-Cheese is a Photobooth-inspired GNOME application for taking pictures and
-videos from a webcam. It also includes fancy graphical effects based on
-the gstreamer-backend.
+This packages contains the development library and header files for %{name}.
+
+%package -n %{develgtk}
+Group: Development/C
+Summary: Developent files for %{name}-gtk
+Requires: %{gtkname} = %{version}-%{release}
+
+%description -n %{develgtk}
+This packages contains the development library and header files for %{name}-gtk.
 
 %prep
 %setup -q
@@ -154,9 +155,11 @@ fi
 %files -n %{develname}
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
-%{_libdir}/lib%{name}-gtk.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_libdir}/pkgconfig/%{name}-gtk.pc
 %{_datadir}/gir-1.0/Cheese-%{girmajor}.gir
 %{_datadir}/gtk-doc/html/%{name}/
+
+%files -n %{develgtk}
+%{_libdir}/lib%{name}-gtk.so
+%{_libdir}/pkgconfig/%{name}-gtk.pc
 
