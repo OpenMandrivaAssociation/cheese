@@ -7,10 +7,10 @@
 %define develname %mklibname -d %{name}
 %define develgtk %mklibname -d %{name}-gtk
 
-Name:		cheese
-Version:	3.2.2
-Release:	2
 Summary:	A GNOME application for taking pictures and videos from a webcam
+Name:		cheese
+Version:	3.4.1
+Release:	1
 License:	GPLv2+
 Group:		Video
 URL:		http://www.gnome.org/projects/cheese/
@@ -28,11 +28,9 @@ BuildRequires:	pkgconfig(clutter-gtk-1.0) >= 0.91.8
 BuildRequires:	pkgconfig(gdk-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gee-1.0) >= 0.6.0
-BuildRequires:	pkgconfig(gio-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.6
 BuildRequires:	pkgconfig(gnome-video-effects)
-BuildRequires:	pkgconfig(gobject-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.6.7
 BuildRequires:	pkgconfig(gstreamer-0.10) >= 0.10.32
 BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10) >= 0.10.32
@@ -72,7 +70,6 @@ This package contains the shared library for %{name}-gtk.
 %package -n %{girname}
 Summary: GObject Introspection interface description for %{name}
 Group: System/Libraries
-Requires: %{libname} = %{version}-%{release}
 
 %description -n %{girname}
 GObject Introspection interface description for %{name}.
@@ -81,6 +78,7 @@ GObject Introspection interface description for %{name}.
 Group: Development/C
 Summary: Developent files for %{name}
 Requires: %{libname} = %{version}-%{release}
+Requires: %{girname} = %{version}-%{release}
 
 %description -n %{develname}
 This packages contains the development library and header files for %{name}.
