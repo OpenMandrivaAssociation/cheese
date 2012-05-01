@@ -21,6 +21,7 @@ BuildRequires:	glib2.0-common
 BuildRequires:	gnome-doc-utils >= 0.20
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool
+BuildRequires:	itstool
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(clutter-1.0) >= 1.6.1
 BuildRequires:	pkgconfig(clutter-gst-1.0) >= 1.0.0
@@ -39,6 +40,7 @@ BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3) >= 0.26
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.32.0
 BuildRequires:	pkgconfig(mx-1.0)
+BuildRequires:	pkgconfig(nautilus-sendto)
 BuildRequires:	pkgconfig(pangocairo) >= 1.28.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
