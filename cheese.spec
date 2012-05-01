@@ -106,7 +106,7 @@ This packages contains the development library and header files for %{name}-gtk.
 
 %install
 %makeinstall_std
-%find_lang %{name} --with-gnome --all-name
+%find_lang %{name} --with-help --all-name
 
 desktop-file-install \
   --dir %{buildroot}%{_datadir}/applications %{buildroot}%{_datadir}/applications/*
@@ -139,11 +139,11 @@ fi
 %files -f %{name}.lang
 %config(noreplace) %launchers/*.desktop
 %{_bindir}/*
+%{_datadir}/applications/*
 %{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.gnome.Cheese.gschema.xml
-%{_datadir}/icons/hicolor/*/apps/*
+%{_iconsdir}/hicolor/*/*/*
 %{_mandir}/man1/cheese.1*
-%{_datadir}/applications/*
 
 %files -n %{libname}
 %{_libdir}/lib%{name}-gtk.so.%{gtk_major}*
