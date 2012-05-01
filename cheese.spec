@@ -105,9 +105,7 @@ This packages contains the development library and header files for %{name}-gtk.
 %make
 
 %install
-rm -rf %{buildroot} %{name}.lang
 %makeinstall_std
-find %{buildroot} -name *.la | xargs rm
 %find_lang %{name} --with-gnome --all-name
 
 desktop-file-install \
