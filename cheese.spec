@@ -1,5 +1,5 @@
-%define gtk_major 20
-%define major 1
+%define gtk_major 21
+%define major 3
 %define girmajor 3.0
 %define libname %mklibname %{name} %{major}
 %define gtkname %mklibname %{name}-gtk %{gtk_major}
@@ -22,6 +22,7 @@ BuildRequires:	gnome-doc-utils >= 0.20
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool
 BuildRequires:	itstool
+BuildRequires:	vala vala-devel
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(clutter-1.0) >= 1.6.1
 BuildRequires:	pkgconfig(clutter-gst-1.0) >= 1.0.0
@@ -29,6 +30,7 @@ BuildRequires:	pkgconfig(clutter-gtk-1.0) >= 0.91.8
 BuildRequires:	pkgconfig(gdk-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:	pkgconfig(gee-1.0) >= 0.6.0
+BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.6
 BuildRequires:	pkgconfig(gnome-video-effects)
@@ -142,6 +144,7 @@ fi
 %{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.gnome.Cheese.gschema.xml
 %{_datadir}/icons/hicolor/*/apps/*
+%{_mandir}/man1/cheese.1*
 %{_datadir}/applications/*
 
 %files -n %{libname}
