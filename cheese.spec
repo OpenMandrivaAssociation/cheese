@@ -108,8 +108,8 @@ This packages contains the development library and header files for %{name}-gtk.
 %makeinstall_std
 %find_lang %{name} --with-gnome --all-name
 # copied from aisleriot
-echo "%%dir %%{_datadir}/help/C" >> aisleriot.lang
-echo "%%{_datadir}/help/C/%%{name}" >> aisleriot.lang
+echo "%%dir %%{_datadir}/help/C" >> %{name}.lang
+echo "%%{_datadir}/help/C/%%{name}" >> %{name}.lang
 for l in ca cs de el en_GB es fi fr gl hu it ko lv nl oc pa pt_BR ru sl sv te th zh_CN; do
 	echo "%%dir %%{_datadir}/help/$l"
 	echo "%%lang($l) %%{_datadir}/help/$l/%%{name}"
