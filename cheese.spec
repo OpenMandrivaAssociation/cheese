@@ -1,16 +1,16 @@
-%define gtk_major 21
-%define major 3
-%define girmajor 3.0
-%define libname %mklibname %{name} %{major}
-%define gtkname %mklibname %{name}-gtk %{gtk_major}
-%define girname	%mklibname %{name}-gtk-gir %{girmajor}
-%define develname %mklibname -d %{name}
-%define develgtk %mklibname -d %{name}-gtk
+%define	gtk_major 21
+%define	major	3
+%define	girmajor 3.0
+%define	libname	%mklibname %{name} %{major}
+%define	gtkname	%mklibname %{name}-gtk %{gtk_major}
+%define	girname	%mklibname %{name}-gtk-gir %{girmajor}
+%define	devname	%mklibname -d %{name}
+%define	devgtk	%mklibname -d %{name}-gtk
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
 Version:	3.4.1
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Video
 URL:		http://www.gnome.org/projects/cheese/
@@ -50,6 +50,12 @@ BuildRequires:	pkgconfig(xtst)
 Requires:	gsettings-desktop-schemas
 Requires:	gstreamer0.10-plugins-base
 Requires:	gstreamer0.10-plugins-good
+%if "%{_lib}" == "lib64"
+%define	_libext	()(64bit)
+%else
+%define	_libext %{nil}
+%endif
+Requires:	gstreamer0.10(encoder-video/x-vp8)%{_libext}
 
 # TODO update features once added upstream
 %description
@@ -78,25 +84,26 @@ Group:		System/Libraries
 %description -n	%{girname}
 GObject Introspection interface description for %{name}.
 
-%package -n	%{develname}
+%package -n	%{devname}
 Group:		Development/C
 Summary:	Developent files for %{name}
 Requires:	%{libname} = %{version}-%{release}
 Requires:	%{girname} = %{version}-%{release}
 
-%description -n	%{develname}
+%description -n	%{devname}
 This packages contains the development library and header files for %{name}.
 
-%package -n	%{develgtk}
+%package -n	%{devgtk}
 Group:		Development/C
 Summary:	Developent files for %{name}-gtk
 Requires:	%{gtkname} = %{version}-%{release}
 
-%description -n	%{develgtk}
+%description -n	%{devgtk}
 This packages contains the development library and header files for %{name}-gtk.
 
 %prep
 %setup -q
+echo %{_libext}
 
 %build
 %configure2_5x	--disable-static
@@ -160,13 +167,13 @@ fi
 %files -n %{girname}
 %{_libdir}/girepository-1.0/Cheese-%{girmajor}.typelib
 
-%files -n %{develname}
+%files -n %{devname}
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
 %{_datadir}/gir-1.0/Cheese-%{girmajor}.gir
 %{_datadir}/gtk-doc/html/%{name}/
 
-%files -n %{develgtk}
+%files -n %{devgtk}
 %{_libdir}/lib%{name}-gtk.so
 %{_libdir}/pkgconfig/%{name}-gtk.pc
