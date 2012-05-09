@@ -67,6 +67,8 @@ the gstreamer-backend.
 %package -n	%{libname}
 Group:		System/Libraries
 Summary:	Shared library part of %{name}
+Obsoletes:	%{gtkname} < 3.5.1-1
+Provides:	%{gtkname} = 3.5.1-1
 
 %description -n	%{libname}
 This package contains the shared library for %{name}.
@@ -74,6 +76,8 @@ This package contains the shared library for %{name}.
 %package -n	%{gtkname}
 Group:		System/Libraries
 Summary:	Shared library part of %{name} - gtk
+Obsoletes:	%{libname} < 3.5.1-1
+Provides:	%{libname} = 3.5.1-1
 
 %description -n	%{gtkname}
 This package contains the shared library for %{name}-gtk.
