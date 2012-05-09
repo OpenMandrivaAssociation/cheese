@@ -104,7 +104,6 @@ This packages contains the development library and header files for %{name}-gtk.
 
 %prep
 %setup -q
-echo %{_libext}
 
 %build
 %configure2_5x	--disable-static
