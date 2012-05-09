@@ -14,7 +14,7 @@ Release:	1
 License:	GPLv2+
 Group:		Video
 URL:		http://www.gnome.org/projects/cheese/
-Source:		ftp://ftp.gnome.org/pub/GNOME/sources/cheese/%{name}-%{version}.tar.xz
+Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/cheese/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
@@ -47,9 +47,9 @@ BuildRequires:	pkgconfig(pangocairo) >= 1.28.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
 
-Requires: gsettings-desktop-schemas
-Requires: gstreamer0.10-plugins-base
-Requires: gstreamer0.10-plugins-good
+Requires:	gsettings-desktop-schemas
+Requires:	gstreamer0.10-plugins-base
+Requires:	gstreamer0.10-plugins-good
 
 # TODO update features once added upstream
 %description
@@ -57,50 +57,49 @@ Cheese is a Photobooth-inspired GNOME application for taking pictures and
 videos from a webcam. It also includes fancy graphical effects based on
 the gstreamer-backend.
 
-%package -n %{libname}
-Group: System/Libraries
-Summary: Shared library part of %{name}
+%package -n	%{libname}
+Group:		System/Libraries
+Summary:	Shared library part of %{name}
 
-%description -n %{libname}
+%description -n	%{libname}
 This package contains the shared library for %{name}.
 
-%package -n %{gtkname}
-Group: System/Libraries
-Summary: Shared library part of %{name} - gtk
+%package -n	%{gtkname}
+Group:		System/Libraries
+Summary:	Shared library part of %{name} - gtk
 
-%description -n %{gtkname}
+%description -n	%{gtkname}
 This package contains the shared library for %{name}-gtk.
 
-%package -n %{girname}
-Summary: GObject Introspection interface description for %{name}
-Group: System/Libraries
+%package -n	%{girname}
+Summary:	GObject Introspection interface description for %{name}
+Group:		System/Libraries
 
-%description -n %{girname}
+%description -n	%{girname}
 GObject Introspection interface description for %{name}.
 
-%package -n %{develname}
-Group: Development/C
-Summary: Developent files for %{name}
-Requires: %{libname} = %{version}-%{release}
-Requires: %{girname} = %{version}-%{release}
+%package -n	%{develname}
+Group:		Development/C
+Summary:	Developent files for %{name}
+Requires:	%{libname} = %{version}-%{release}
+Requires:	%{girname} = %{version}-%{release}
 
-%description -n %{develname}
+%description -n	%{develname}
 This packages contains the development library and header files for %{name}.
 
-%package -n %{develgtk}
-Group: Development/C
-Summary: Developent files for %{name}-gtk
-Requires: %{gtkname} = %{version}-%{release}
+%package -n	%{develgtk}
+Group:		Development/C
+Summary:	Developent files for %{name}-gtk
+Requires:	%{gtkname} = %{version}-%{release}
 
-%description -n %{develgtk}
+%description -n	%{develgtk}
 This packages contains the development library and header files for %{name}-gtk.
 
 %prep
 %setup -q
 
 %build
-%configure2_5x \
-	--disable-static
+%configure2_5x	--disable-static
 
 %make
 
@@ -171,4 +170,3 @@ fi
 %files -n %{develgtk}
 %{_libdir}/lib%{name}-gtk.so
 %{_libdir}/pkgconfig/%{name}-gtk.pc
-
