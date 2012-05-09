@@ -56,6 +56,7 @@ Requires:	gstreamer0.10-plugins-good
 %define	_libext %{nil}
 %endif
 Requires:	gstreamer0.10(encoder-video/x-vp8)%{_libext}
+Requires:	gnome-video-effects
 
 # TODO update features once added upstream
 %description
