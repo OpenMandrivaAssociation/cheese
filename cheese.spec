@@ -1,9 +1,9 @@
-%define	gtk_major 21
+%define	gtk_maj	21
 %define	major	3
-%define	girmajor 3.0
+%define	gir_maj	3.0
 %define	libname	%mklibname %{name} %{major}
-%define	gtkname	%mklibname %{name}-gtk %{gtk_major}
-%define	girname	%mklibname %{name}-gtk-gir %{girmajor}
+%define	gtkname	%mklibname %{name}-gtk %{gtk_maj}
+%define	girname	%mklibname %{name}-gtk-gir %{gir_maj}
 %define	devname	%mklibname -d %{name}
 %define	devgtk	%mklibname -d %{name}-gtk
 
@@ -160,19 +160,19 @@ fi
 %{_mandir}/man1/cheese.1*
 
 %files -n %{libname}
-%{_libdir}/lib%{name}-gtk.so.%{gtk_major}*
-
-%files -n %{gtkname}
 %{_libdir}/lib%{name}.so.%{major}*
 
+%files -n %{gtkname}
+%{_libdir}/lib%{name}-gtk.so.%{gtk_maj}*
+
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Cheese-%{girmajor}.typelib
+%{_libdir}/girepository-1.0/Cheese-%{gir_maj}.typelib
 
 %files -n %{devname}
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/gir-1.0/Cheese-%{girmajor}.gir
+%{_datadir}/gir-1.0/Cheese-%{gir_maj}.gir
 %{_datadir}/gtk-doc/html/%{name}/
 
 %files -n %{devgtk}
