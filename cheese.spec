@@ -9,12 +9,12 @@
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
-Version:	3.4.1
-Release:	2
+Version:	3.5.1
+Release:	1
 License:	GPLv2+
 Group:		Video
 URL:		http://www.gnome.org/projects/cheese/
-Source0:	ftp://ftp.gnome.org/pub/GNOME/sources/cheese/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/3.5/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
