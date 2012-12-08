@@ -1,5 +1,5 @@
-%define	gtk_maj	21
-%define	major	3
+%define	gtk_maj	23
+%define	major	7
 %define	gir_maj	3.0
 %define	libname	%mklibname %{name} %{major}
 %define	gtkname	%mklibname %{name}-gtk %{gtk_maj}
@@ -9,12 +9,12 @@
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
-Version:	3.5.2
+Version:	3.6.2
 Release:	1
 License:	GPLv2+
 Group:		Video
 URL:		http://www.gnome.org/projects/cheese/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/3.5/%{name}-%{version}.tar.xz
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/3.6/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
@@ -25,7 +25,7 @@ BuildRequires:	itstool
 BuildRequires:	vala vala-devel
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(clutter-1.0) >= 1.6.1
-BuildRequires:	pkgconfig(clutter-gst-1.0) >= 1.0.0
+BuildRequires:	pkgconfig(clutter-gst-2.0)
 BuildRequires:	pkgconfig(clutter-gtk-1.0) >= 0.91.8
 BuildRequires:	pkgconfig(gdk-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
@@ -35,8 +35,11 @@ BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.6
 BuildRequires:	pkgconfig(gnome-video-effects)
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.6.7
-BuildRequires:	pkgconfig(gstreamer-0.10) >= 0.10.32
-BuildRequires:	pkgconfig(gstreamer-plugins-base-0.10) >= 0.10.32
+BuildRequires:	pkgconfig(gstreamer-1.0) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-pbutils-1.0) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-plugins-bad-1.0) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-plugins-base-1.0) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-basevideo-1.0) >= 1.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3) >= 0.26
@@ -48,14 +51,15 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
 
 Requires:	gsettings-desktop-schemas
-Requires:	gstreamer0.10-plugins-base
-Requires:	gstreamer0.10-plugins-good
+Requires:	gstreamer1.0-plugins-base
+Requires:	gstreamer1.0-plugins-good
+Requires:	gstreamer1.0-plugins-bad
 %if "%{_lib}" == "lib64"
 %define	_libext	()(64bit)
 %else
 %define	_libext %{nil}
 %endif
-Requires:	gstreamer0.10(encoder-video/x-vp8)%{_libext}
+#Requires:	gstreamer0.10(encoder-video/x-vp8)%{_libext}
 Requires:	gnome-video-effects
 
 # TODO update features once added upstream
