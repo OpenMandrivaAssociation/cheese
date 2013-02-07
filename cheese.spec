@@ -10,7 +10,7 @@
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
 Version:	3.6.2
-Release:	1
+Release:	2
 License:	GPLv2+
 Group:		Video
 URL:		http://www.gnome.org/projects/cheese/
@@ -54,12 +54,7 @@ Requires:	gsettings-desktop-schemas
 Requires:	gstreamer1.0-plugins-base
 Requires:	gstreamer1.0-plugins-good
 Requires:	gstreamer1.0-plugins-bad
-%if "%{_lib}" == "lib64"
-%define	_libext	()(64bit)
-%else
-%define	_libext %{nil}
-%endif
-#Requires:	gstreamer0.10(encoder-video/x-vp8)%{_libext}
+Requires:	gstreamer0.10(encoder-video/x-vp8)%{_arch_tag_suffix}
 Requires:	gnome-video-effects
 
 # TODO update features once added upstream
