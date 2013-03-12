@@ -1,3 +1,6 @@
+%define url_ver %(echo %{version}|cut -d. -f1,2)
+
+%define	gstapi	1.0
 %define	gtk_maj	23
 %define	major	7
 %define	gir_maj	3.0
@@ -13,8 +16,8 @@ Version:	3.6.2
 Release:	2
 License:	GPLv2+
 Group:		Video
-URL:		http://www.gnome.org/projects/cheese/
-Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/3.6/%{name}-%{version}.tar.xz
+Url:		http://www.gnome.org/projects/cheese/
+Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/%{url_ver}/%{name}-%{version}.tar.xz
 
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
@@ -35,11 +38,11 @@ BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.6
 BuildRequires:	pkgconfig(gnome-video-effects)
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.6.7
-BuildRequires:	pkgconfig(gstreamer-1.0) >= 1.0
-BuildRequires:	pkgconfig(gstreamer-pbutils-1.0) >= 1.0
-BuildRequires:	pkgconfig(gstreamer-plugins-bad-1.0) >= 1.0
-BuildRequires:	pkgconfig(gstreamer-plugins-base-1.0) >= 1.0
-BuildRequires:	pkgconfig(gstreamer-basevideo-1.0) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-%{gstapi}) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-pbutils-%{gstapi}) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-plugins-bad-%{gstapi}) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-plugins-base-%{gstapi}) >= 1.0
+BuildRequires:	pkgconfig(gstreamer-basevideo-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3) >= 0.26
@@ -51,10 +54,10 @@ BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
 
 Requires:	gsettings-desktop-schemas
-Requires:	gstreamer1.0-plugins-base
-Requires:	gstreamer1.0-plugins-good
-Requires:	gstreamer1.0-plugins-bad
-Requires:	gstreamer0.10(encoder-video/x-vp8)%{_arch_tag_suffix}
+Requires:	gstreamer%{gstapi}-plugins-base
+Requires:	gstreamer%{gstapi}-plugins-good
+Requires:	gstreamer%{gstapi}-plugins-bad
+Suggests:	gstreamer%{gstapi}-rtpvp8
 Requires:	gnome-video-effects
 
 # TODO update features once added upstream
