@@ -12,8 +12,8 @@
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
-Version:	3.8.2
-Release:	8
+Version:	3.14.1
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://www.gnome.org/projects/cheese/
@@ -26,13 +26,13 @@ BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool
 BuildRequires:	itstool
 BuildRequires:	vala vala-devel
+BuildRequires:	pkgconfig(appstream-glib)
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(clutter-1.0) >= 1.6.1
 BuildRequires:	pkgconfig(clutter-gst-2.0)
 BuildRequires:	pkgconfig(clutter-gtk-1.0) >= 0.91.8
 BuildRequires:	pkgconfig(gdk-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
-BuildRequires:	pkgconfig(gee-1.0) >= 0.6.0
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.6
@@ -42,12 +42,10 @@ BuildRequires:	pkgconfig(gstreamer-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-pbutils-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-plugins-bad-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-plugins-base-%{gstapi}) >= 1.0
-BuildRequires:	pkgconfig(gstreamer-basevideo-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3) >= 0.26
 BuildRequires:	pkgconfig(librsvg-2.0) >= 2.32.0
-BuildRequires:	pkgconfig(mx-1.0)
 BuildRequires:	pkgconfig(pangocairo) >= 1.28.0
 BuildRequires:	pkgconfig(x11)
 BuildRequires:	pkgconfig(xtst)
@@ -112,7 +110,9 @@ This packages contains the development library and header files for %{name}-gtk.
 %setup -q
 
 %build
-%configure2_5x	--disable-static
+%configure \
+	--disable-static \
+	--enable-compile-warnings=no
 
 %make
 
@@ -152,10 +152,13 @@ fi
 %config(noreplace) %launchers/*.desktop
 %{_bindir}/*
 %{_datadir}/applications/*
-%{_datadir}/%{name}
 %{_datadir}/glib-2.0/schemas/org.gnome.Cheese.gschema.xml
 %{_iconsdir}/hicolor/*/*/*
 %{_mandir}/man1/cheese.1*
+%{_datadir}/appdata/org.gnome.Cheese.appdata.xml
+%{_datadir}/dbus-1/services/org.gnome.Cheese.service
+%{_datadir}/dbus-1/services/org.gnome.Camera.service
+%{_libexecdir}/gnome-camera-service
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}*

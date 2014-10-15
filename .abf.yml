@@ -1,2 +1,4 @@
-sources:
+removed_sources:
   cheese-3.6.2.tar.xz: 695785c6b6fb26809239c8fa671a4a395fa4096b
+sources:
+  cheese-3.14.1.tar.xz: 4ef2d075ebd9bff9f6c3651249c187212e24dadf
