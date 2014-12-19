@@ -154,7 +154,7 @@ fi
 %{_datadir}/applications/*
 %{_datadir}/glib-2.0/schemas/org.gnome.Cheese.gschema.xml
 %{_iconsdir}/hicolor/*/*/*
-#%%{_mandir}/man1/cheese.1*
+%{_mandir}/man1/cheese.1.xz
 %{_datadir}/appdata/org.gnome.Cheese.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.Cheese.service
 %{_datadir}/dbus-1/services/org.gnome.Camera.service
