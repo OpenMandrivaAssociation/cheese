@@ -42,7 +42,6 @@ BuildRequires:	pkgconfig(gstreamer-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-pbutils-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-plugins-bad-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-plugins-base-%{gstapi}) >= 1.0
-BuildRequires:	pkgconfig(gstreamer-basevideo-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gtk+-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gudev-1.0)
 BuildRequires:	pkgconfig(libcanberra-gtk3) >= 0.26
