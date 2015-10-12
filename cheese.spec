@@ -1,8 +1,9 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
+%define _disable_rebuild_configure 1
 
 %define	gstapi	1.0
-%define	gtk_maj	23
-%define	major	7
+%define	gtk_maj	25
+%define	major	8
 %define	gir_maj	3.0
 %define	libname	%mklibname %{name} %{major}
 %define	gtkname	%mklibname %{name}-gtk %{gtk_maj}
@@ -12,8 +13,8 @@
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
-Version:	3.17.1
-Release:	6
+Version:	3.18.0
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://www.gnome.org/projects/cheese/
@@ -29,7 +30,7 @@ BuildRequires:	vala vala-devel
 BuildRequires:	pkgconfig(appstream-glib)
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(clutter-1.0) >= 1.6.1
-BuildRequires:	pkgconfig(clutter-gst-2.0)
+BuildRequires:	pkgconfig(clutter-gst-3.0)
 BuildRequires:	pkgconfig(clutter-gtk-1.0) >= 0.91.8
 BuildRequires:	pkgconfig(gdk-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
