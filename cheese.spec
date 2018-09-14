@@ -13,7 +13,7 @@
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
-Version:	3.18.1
+Version:	3.28.0
 Release:	1
 License:	GPLv2+
 Group:		Video
@@ -158,9 +158,10 @@ fi
 %{_iconsdir}/hicolor/*/*/*
 %{_mandir}/man1/cheese.1.xz
 %{_datadir}/appdata/org.gnome.Cheese.appdata.xml
+#{_datadir}/dbus-1/services/org.gnome.Cheese.service
+#{_datadir}/dbus-1/services/org.gnome.Camera.service
+#{_libexecdir}/gnome-camera-service
 %{_datadir}/dbus-1/services/org.gnome.Cheese.service
-%{_datadir}/dbus-1/services/org.gnome.Camera.service
-%{_libexecdir}/gnome-camera-service
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}*
