@@ -161,6 +161,7 @@ fi
 #{_datadir}/dbus-1/services/org.gnome.Cheese.service
 #{_datadir}/dbus-1/services/org.gnome.Camera.service
 #{_libexecdir}/gnome-camera-service
+%{_datadir}/dbus-1/services/org.gnome.Cheese.service
 
 %files -n %{libname}
 %{_libdir}/lib%{name}.so.%{major}*
