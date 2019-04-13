@@ -1,10 +1,2 @@
-removed_sources:
-  cheese-3.14.1.tar.xz: 4ef2d075ebd9bff9f6c3651249c187212e24dadf
-  cheese-3.17.1.tar.xz: 91fc2ac4f316a28dd80a06784cada603778e3010
-  cheese-3.18.0.tar.xz: b4b536d0b9037b9a363417d1fe3096ac14200f43
-  cheese-3.6.2.tar.xz: 695785c6b6fb26809239c8fa671a4a395fa4096b
-  cheese-3.18.1.tar.xz: a77214dbabb90bbbc754f1c4792468fc92f97f13
-  
 sources:
-  cheese-3.28.0.tar.xz: b135c33058271cef7be1422c939a924e7146187f
-  cheese-3.30.0.tar.xz: ce5cec9429ce30a10c5e4a8f7c831677e32772aa
+  cheese-3.32.1.tar.xz: b5e1f4c19ac12b4e6f61b2cfe49885e6bb834ad4
