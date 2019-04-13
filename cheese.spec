@@ -13,20 +13,23 @@
 
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
-Version:	3.30.0
-Release:	2
+Version:	3.32.1
+Release:	1
 License:	GPLv2+
 Group:		Video
 Url:		http://www.gnome.org/projects/cheese/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/%{url_ver}/%{name}-%{version}.tar.xz
 
+BuildRequires:	gnome-common
+BuildRequires:	yelp-tools
 BuildRequires:	desktop-file-utils
 BuildRequires:	glib2.0-common
 BuildRequires:	gnome-doc-utils >= 0.20
 BuildRequires:	gtk-doc >= 1.14
 BuildRequires:	intltool
 BuildRequires:	itstool
-BuildRequires:	vala vala-devel
+BuildRequires:	vala 
+BuildRequires:	vala-devel
 BuildRequires:	pkgconfig(appstream-glib)
 BuildRequires:	pkgconfig(cairo) >= 1.10.0
 BuildRequires:	pkgconfig(clutter-1.0) >= 1.6.1
@@ -34,10 +37,12 @@ BuildRequires:	pkgconfig(clutter-gst-3.0)
 BuildRequires:	pkgconfig(clutter-gtk-1.0) >= 0.91.8
 BuildRequires:	pkgconfig(gdk-3.0) >= 2.99.4
 BuildRequires:	pkgconfig(gdk-pixbuf-2.0)
+BuildRequires:	pkgconfig(gio-2.0) >= 2.32.0
 BuildRequires:	pkgconfig(gl)
 BuildRequires:	pkgconfig(glib-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gnome-desktop-3.0) >= 2.91.6
 BuildRequires:	pkgconfig(gnome-video-effects)
+BuildRequires:	pkgconfig(gobject-2.0) >= 2.28.0
 BuildRequires:	pkgconfig(gobject-introspection-1.0) >= 0.6.7
 BuildRequires:	pkgconfig(gstreamer-%{gstapi}) >= 1.0
 BuildRequires:	pkgconfig(gstreamer-pbutils-%{gstapi}) >= 1.0
@@ -58,7 +63,8 @@ Requires:	gstreamer%{gstapi}-plugins-bad
 Suggests:	gstreamer%{gstapi}-rtpvp8
 Suggests:	gstreamer%{gstapi}-vp8
 Requires:	gnome-video-effects
-Requires:	gstreamer%{gstapi}-gstclutter
+#Requires:	gstreamer%{gstapi}-gstclutter
+Requires:	gstreamer%{gstapi}-gstclutter3
 
 # TODO update features once added upstream
 %description
@@ -116,10 +122,10 @@ This packages contains the development library and header files for %{name}-gtk.
 	--disable-static \
 	--enable-compile-warnings=no
 
-%make
+%make_build
 
 %install
-%makeinstall_std
+%make_install
 %find_lang %{name} --with-gnome --all-name
 
 desktop-file-install \
