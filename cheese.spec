@@ -159,7 +159,7 @@ fi
 %{_datadir}/applications/*
 %{_datadir}/glib-2.0/schemas/org.gnome.Cheese.gschema.xml
 %{_iconsdir}/hicolor/*/*/*
-%{_mandir}/man1/cheese.1.xz
+%{_mandir}/man1/cheese.1.*
 %{_datadir}/metainfo/org.gnome.Cheese.appdata.xml
 %{_datadir}/dbus-1/services/org.gnome.Cheese.service
 
