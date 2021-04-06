@@ -19,6 +19,7 @@ License:	GPLv2+
 Group:		Video
 Url:		http://www.gnome.org/projects/cheese/
 Source0:	http://ftp.gnome.org/pub/GNOME/sources/cheese/%{url_ver}/%{name}-%{version}.tar.xz
+Patch0:   https://gitlab.gnome.org/GNOME/cheese/-/merge_requests/41.patch
 
 BuildRequires:	gnome-common
 BuildRequires:	yelp-tools
@@ -116,6 +117,7 @@ This packages contains the development library and header files for %{name}-gtk.
 
 %prep
 %setup -q
+%autopatch -p1
 
 %build
 %meson
