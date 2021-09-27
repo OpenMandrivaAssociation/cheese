@@ -177,7 +177,7 @@ fi
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-%{_datadir}/gir-1.0/Cheese-%{gir_maj}.gir
+#{_datadir}/gir-1.0/Cheese-%{gir_maj}.gir
 %{_datadir}/gtk-doc/html/%{name}/
 
 %files -n %{devgtk}
