@@ -4,7 +4,7 @@
 %define	gstapi	1.0
 %define	gtk_maj	25
 %define	major	8
-%define	gir_maj	3.0
+%define	gir_maj	41
 %define	libname	%mklibname %{name} %{major}
 %define	gtkname	%mklibname %{name}-gtk %{gtk_maj}
 %define	girname	%mklibname %{name}-gtk-gir %{gir_maj}
