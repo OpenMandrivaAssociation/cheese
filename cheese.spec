@@ -4,7 +4,7 @@
 %define	gstapi	1.0
 %define	gtk_maj	25
 %define	major	8
-%define	gir_maj	41
+%define	gir_maj	41.0
 %define	libname	%mklibname %{name} %{major}
 %define	gtkname	%mklibname %{name}-gtk %{gtk_maj}
 %define	girname	%mklibname %{name}-gtk-gir %{gir_maj}
@@ -171,13 +171,13 @@ fi
 %{_libdir}/lib%{name}-gtk.so.%{gtk_maj}*
 
 %files -n %{girname}
-#{_libdir}/girepository-1.0/Cheese-%{gir_maj}.typelib
+%{_libdir}/girepository-1.0/Cheese-%{gir_maj}.typelib
 
 %files -n %{devname}
 %{_includedir}/%{name}
 %{_libdir}/lib%{name}.so
 %{_libdir}/pkgconfig/%{name}.pc
-#{_datadir}/gir-1.0/Cheese-%{gir_maj}.gir
+%{_datadir}/gir-1.0/Cheese-%{gir_maj}.gir
 %{_datadir}/gtk-doc/html/%{name}/
 
 %files -n %{devgtk}
