@@ -171,7 +171,7 @@ fi
 %{_libdir}/lib%{name}-gtk.so.%{gtk_maj}*
 
 %files -n %{girname}
-%{_libdir}/girepository-1.0/Cheese-%{gir_maj}.typelib
+#{_libdir}/girepository-1.0/Cheese-%{gir_maj}.typelib
 
 %files -n %{devname}
 %{_includedir}/%{name}
