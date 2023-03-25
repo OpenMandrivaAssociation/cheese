@@ -1,6 +1,8 @@
 %define url_ver %(echo %{version}|cut -d. -f1,2)
 %define _disable_rebuild_configure 1
 
+%global optflags %{optflags} -Wno-error=incompatible-function-pointer-types
+
 %define	gstapi	1.0
 %define	gtk_maj	25
 %define	major	8
@@ -14,7 +16,7 @@
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
 Version:	43.0
-Release:	2
+Release:	3
 License:	GPLv2+
 Group:		Video
 Url:		http://www.gnome.org/projects/cheese/
