@@ -16,7 +16,7 @@
 Summary:	A GNOME application for taking pictures and videos from a webcam
 Name:		cheese
 Version:	43.0
-Release:	3
+Release:	4
 License:	GPLv2+
 Group:		Video
 Url:		http://www.gnome.org/projects/cheese/
