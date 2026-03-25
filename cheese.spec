@@ -2,6 +2,7 @@
 %define _disable_rebuild_configure 1
 
 %global optflags %{optflags} -Wno-error=incompatible-function-pointer-types
+%global optflags %{optflags} -Wno-error=incompatible-pointer-types
 
 %define	gstapi	1.0
 %define	gtk_maj	25
